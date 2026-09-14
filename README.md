@@ -208,8 +208,7 @@ The Inngest dashboard should show the registered functions and their executions,
 
 > **Screenshot:** 
 
-
-(screenshots/Dashboard.png)
+[screenshots/Dashboard.png]
 
 The screenshot should clearly show the **Functions/Run history** with runs for:
 
@@ -228,6 +227,8 @@ flyrank-backend-background-jobs/
 │
 ├── main.py
 ├── pyproject.toml
+├── screenshots/
+│     ├──Dashboard.png 
 ├── uv.lock
 ├── README.md
 └── .gitignore
