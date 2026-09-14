@@ -208,7 +208,7 @@ The Inngest dashboard should show the registered functions and their executions,
 
 > **Screenshot:** 
 
-[screenshots/Dashboard.png]
+![IngestDashboard](./screenshots/Dashboard.png)
 
 The screenshot should clearly show the **Functions/Run history** with runs for:
 
