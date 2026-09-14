@@ -77,6 +77,14 @@ async def get_report(report_id: str):
         )
     return report
 
-
-inngest.fast_api.serve(app, inngest_client, [say_hello, make_report],)
+@inngest_client.create_function(
+    fn_id = "heartbeat",
+    trigger = inngest.TriggerCron(cron="* * * * *")
+)
+async def heartbeat(ctx: inngest.Context):
+    pending = sum(1 for report in reports.values() if report['status']=="pending")
+    done = sum(1 for report in reports.values() if report['status']=="done")
+    failed = sum(1 for report in reports.values() if report['status']=="failed")
+    ctx.logger.info(f"Heartbeat: pending={pending}, done={done}, failed={failed}")
+inngest.fast_api.serve(app, inngest_client, [say_hello, make_report, heartbeat],)
 
